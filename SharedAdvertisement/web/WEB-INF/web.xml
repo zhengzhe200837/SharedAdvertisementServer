@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                              http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+          version="3.1" >
+    <servlet>
+        <servlet-name>SharedAdvertisement</servlet-name>
+        <servlet-class>com.wind.sharedadvertisement.SharedAdvertisement</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SharedAdvertisement</servlet-name>
+        <url-pattern>/SharedAdvertisement</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UploadVideoServlet</servlet-name>
+        <servlet-class>com.wind.sharedadvertisement.UploadVideoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UploadVideoServlet</servlet-name>
+        <url-pattern>/UploadVideoServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MyOrderServlet</servlet-name>
+        <servlet-class>com.wind.sharedadvertisement.MyOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MyOrderServlet</servlet-name>
+        <url-pattern>/MyOrderServlet</url-pattern>
+    </servlet-mapping>
+</web-app>
