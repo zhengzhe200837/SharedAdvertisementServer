@@ -31,4 +31,13 @@
         <servlet-name>MyOrderServlet</servlet-name>
         <url-pattern>/MyOrderServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PushServlet</servlet-name>
+        <servlet-class>com.wind.sharedadvertisement.push.PushServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PushServlet</servlet-name>
+        <url-pattern>/PushServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

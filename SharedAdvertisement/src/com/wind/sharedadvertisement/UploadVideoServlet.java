@@ -18,6 +18,7 @@ import java.util.List;
 @WebServlet(name = "UploadVideoServlet")
 public class UploadVideoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         PrintWriter pw = response.getWriter();
         if (!ServletFileUpload.isMultipartContent(request)) {
             response.setCharacterEncoding("utf-8");
@@ -68,9 +69,10 @@ public class UploadVideoServlet extends HttpServlet {
         } catch (Exception e) {
             pw.println("upload_error");
         }
+        pw.println("success");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request, response);
+
     }
 }
