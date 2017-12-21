@@ -1,5 +1,6 @@
 package com.wind.sharedadvertisement.push;
 
+import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,6 +47,11 @@ public class Jdpush {
     }
 
     public static PushPayload buildPushObject_audience_messageWithExtras() {
+        Gson gson = new Gson();
+        VideoUrl vu = new VideoUrl("http://192.168.31.109:8080/SharedAdvertisement/Video1.mp4", "Video1.mp4");
+        String vuG = gson.toJson(vu);
+        System.out.println(vuG);
+
         return PushPayload.newBuilder()
                 .setPlatform(Platform.all())//设置接受的平台
 //                 .setAudience(Audience.registrationId(REGISTRATION_ID))//客户端调用接口获取到的registration id
@@ -53,9 +59,18 @@ public class Jdpush {
                 .setNotification(Notification.alert(ALERT))
                 .setMessage(Message.newBuilder()
                         .setMsgContent(MSG_CONTENT)
-                        .addExtra("from", "JPush")
+                        .addExtra("from", vuG)
                         .build())
                 .build();
+    }
+
+    public static class VideoUrl {
+        private String url = null;
+        private String name = null;
+        public VideoUrl(String url, String name) {
+            this.url = url;
+            this.name = name;
+        }
     }
 
 //     public static PushPayload buildPushObject_ios_tagAnd_alertWithExtrasAndMessage() {

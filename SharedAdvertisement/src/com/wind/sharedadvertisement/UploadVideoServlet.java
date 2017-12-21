@@ -18,7 +18,6 @@ import java.util.List;
 @WebServlet(name = "UploadVideoServlet")
 public class UploadVideoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         PrintWriter pw = response.getWriter();
         if (!ServletFileUpload.isMultipartContent(request)) {
             response.setCharacterEncoding("utf-8");

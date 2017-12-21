@@ -4,6 +4,7 @@
           xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                               http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
           version="3.1" >
+
     <servlet>
         <servlet-name>SharedAdvertisement</servlet-name>
         <servlet-class>com.wind.sharedadvertisement.SharedAdvertisement</servlet-class>
@@ -39,5 +40,41 @@
     <servlet-mapping>
         <servlet-name>PushServlet</servlet-name>
         <url-pattern>/PushServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>GetSelectedPlayTimeSegmentServlet</servlet-name>
+        <servlet-class>com.wind.sharedadvertisement.GetSelectedPlayTimeSegmentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetSelectedPlayTimeSegmentServlet</servlet-name>
+        <url-pattern>/GetSelectedPlayTimeSegmentServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetBillBoardLocationInfoServlet</servlet-name>
+        <servlet-class>com.wind.sharedadvertisement.GetBillBoardLocationInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetBillBoardLocationInfoServlet</servlet-name>
+        <url-pattern>/GetBillBoardLocationInfoServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetBillBoardDetailInfoServlet</servlet-name>
+        <servlet-class>com.wind.sharedadvertisement.GetBillBoardDetailInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetBillBoardDetailInfoServlet</servlet-name>
+        <url-pattern>/GetBillBoardDetailInfoServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UploadMyOrderServlet</servlet-name>
+        <servlet-class>com.wind.sharedadvertisement.UploadMyOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UploadMyOrderServlet</servlet-name>
+        <url-pattern>/UploadMyOrderServlet</url-pattern>
     </servlet-mapping>
 </web-app>
