@@ -16,9 +16,10 @@ import cn.jpush.api.push.model.notification.AndroidNotification;
 import cn.jpush.api.push.model.notification.IosNotification;
 import cn.jpush.api.push.model.notification.Notification;
 
+import java.util.Calendar;
+
 public class Jdpush {
     protected static final Logger LOG = LoggerFactory.getLogger(Jdpush.class);
-
     // demo App defined in resources/jpush-api.conf
 
     public static final String ALERT = "您有新的订单信息";
@@ -47,8 +48,10 @@ public class Jdpush {
     }
 
     public static PushPayload buildPushObject_audience_messageWithExtras() {
+        getCurrentTime();
+
         Gson gson = new Gson();
-        VideoUrl vu = new VideoUrl("http://192.168.31.109:8080/SharedAdvertisement/Video1.mp4", "Video1.mp4");
+        VideoUrl vu = new VideoUrl("http://192.168.31.109:8080/SharedAdvertisement/VID.3gp", "20171226154100", 0, "VID.3gp", 10, "zhengzhe");
         String vuG = gson.toJson(vu);
         System.out.println(vuG);
 
@@ -59,17 +62,39 @@ public class Jdpush {
                 .setNotification(Notification.alert(ALERT))
                 .setMessage(Message.newBuilder()
                         .setMsgContent(MSG_CONTENT)
-                        .addExtra("from", vuG)
+                        .addExtra("message", vuG)
                         .build())
                 .build();
     }
 
+    private static String mCurrentTime;
+
+    private static void getCurrentTime() {
+        Calendar c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH) + 1;
+        int date = c.get(Calendar.DATE);
+        int hour = c.get(Calendar.HOUR_OF_DAY);
+        int minute = c.get(Calendar.MINUTE);
+        int second = c.get(Calendar.SECOND);
+        mCurrentTime = "" + year + month + date + hour + minute + second;
+        System.out.println("mCurrentTime = " + mCurrentTime);
+    }
+
     public static class VideoUrl {
         private String url = null;
-        private String name = null;
-        public VideoUrl(String url, String name) {
+        private String playTime = null;
+        private int order_status = -1;
+        private String name;
+        private int playTimes;
+        private String orderId;
+        public VideoUrl(String url, String playTime, int order_status, String name, int playTimes, String orderId) {
             this.url = url;
+            this.playTime = playTime;
+            this.order_status = order_status;
             this.name = name;
+            this.playTimes = playTimes;
+            this.orderId = orderId;
         }
     }
 

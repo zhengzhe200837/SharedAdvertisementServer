@@ -26,8 +26,8 @@ public class GetBillBoardDetailInfoServlet extends HttpServlet {
         Gson gson = new Gson();
         BillboardInfo bi = new BillboardInfo("billboard", 30, "陕西", "设备类型",
                 "屏幕类型", 100, 200, "15800734916", "20171221", "20171230",
-                "150000", "180000", "http://192.168.31.109:8080/SharedAdvertisement/picture.png",
-                "设备属性", "屏幕属性");
+                "150000", "180000", "http://192.168.31.109:8080/SharedAdvertisement/picture2.png",
+                "设备属性", "屏幕属性", "世博大屏");
         String r = gson.toJson(bi);
         response.setCharacterEncoding("utf-8");  //确保接收到的汉字不乱码
         response.getWriter().println(r);
